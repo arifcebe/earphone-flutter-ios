@@ -51,9 +51,20 @@ class _MyAppState extends State<MyApp> {
     print("calling audio $callingAudio");
   }
 
+  void _sendMusicData() async {
+    try {
+      Map<String, String> bandName = Map<String, String>();
+      bandName['peterpan'] = 'Menunggu Pagi';
+      await Brisikmen.sendDataToNative(bandName);
+    } on PlatformException {
+      print('Failed to send data to native');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     initCallAudio();
+    _sendMusicData();
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(

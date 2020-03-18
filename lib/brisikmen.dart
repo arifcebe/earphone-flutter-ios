@@ -15,4 +15,8 @@ class Brisikmen {
     final String resultFromAudio = await _channel.invokeMethod('callAudio');
     return resultFromAudio;
   }
+
+  static sendDataToNative(Map data) {
+    _channel.invokeMapMethod('musicData',data);
+  }
 }

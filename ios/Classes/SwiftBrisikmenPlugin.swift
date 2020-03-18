@@ -19,6 +19,11 @@ public class SwiftBrisikmenPlugin: NSObject, FlutterPlugin {
     case "callAudio":
         playAudioCalling(result: result)
         break
+    case "musicData":
+        let musicData: [String: Any] = call.arguments as? [String: Any] ?? [:]
+        let band: String = musicData["peterpan"] as? String ?? ""
+        print("get Judul Lagu from flutter \(band)")
+        break
     default:
         break
     }
